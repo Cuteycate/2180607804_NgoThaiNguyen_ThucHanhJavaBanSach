@@ -5,6 +5,7 @@ import jakarta.validation.constraints.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import com.example.Tuan3_2180607804.validator.annotation.ValidUserId;
 
 @Data
 @Entity
@@ -25,4 +26,9 @@ public class Book {
     @JoinColumn(name = "category_id")
     @ValidCategoryId
     private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @ValidUserId
+    private User user;
 }
